@@ -30,12 +30,12 @@ spec:
         - name: POSTGRESQL_USER
           valueFrom:
             secretKeyRef:
-              name: slabdojo-db
+              name: teamdojo-str-db
               key: username
         - name: POSTGRESQL_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: slabdojo-db
+              name: teamdojo-str-db
               key: password
         volumeMounts:
         - mountPath: /var/lib/pgsql/data

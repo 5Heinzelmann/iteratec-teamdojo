@@ -4,7 +4,7 @@ set -e
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # hard-coded in templates and currently not subject to modification
-OC_NAMESPACE="slabdojo"
+OC_NAMESPACE="teamdojo-str"
 
 # variables
 read_var() {
@@ -42,8 +42,8 @@ create_instance() {
 
 oc secrets new-dockercfg "${OC_NAMESPACE}-registry" --docker-server="${DOCKER_CFG_REGISTRY}" --docker-username="${DOCKER_CFG_USERNAME}" --docker-email="${DOCKER_CFG_EMAIL}" --docker-password="${DOCKER_CFG_TOKEN}"
 oc secrets new-basicauth "${OC_NAMESPACE}-db" --username="${DB_USER}" --password="${DB_PASSWORD}"
-create "serviceaccounts/bamboodeployer.yml"
-create "rolebindings/edit.yml"
+# create "serviceaccounts/bamboodeployer.yml"
+# create "rolebindings/edit.yml"
 
 create_instance ""
 create_instance "-int"

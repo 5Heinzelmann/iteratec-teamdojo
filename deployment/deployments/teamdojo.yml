@@ -30,12 +30,12 @@ spec:
           - name: SPRING_DATASOURCE_USERNAME
             valueFrom:
               secretKeyRef:
-                name: slabdojo-db
+                name: teamdojo-str-db
                 key: username
           - name: SPRING_DATASOURCE_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: slabdojo-db
+                name: teamdojo-str-db
                 key: password
           - name: JHIPSTER_SLEEP
             value: "10" # gives time for the database to boot before the application
@@ -49,5 +49,5 @@ spec:
           successThreshold: 1
           timeoutSeconds: 60
       imagePullSecrets:
-      - name: slabdojo-registry
+      - name: teamdojo-str-registry
   test: false
