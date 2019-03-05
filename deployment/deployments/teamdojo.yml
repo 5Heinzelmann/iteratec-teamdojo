@@ -17,6 +17,7 @@ spec:
     spec:
       containers:
       - image: "docker.iteratec.io/teamdojo:latest"
+        imagePullPolicy: Always
         name: teamdojo
         ports:
         - containerPort: 8080
@@ -30,7 +31,7 @@ spec:
             valueFrom:
               secretKeyRef:
                 name: slabdojo-db
-                key: user
+                key: username
           - name: SPRING_DATASOURCE_PASSWORD
             valueFrom:
               secretKeyRef:
@@ -38,6 +39,15 @@ spec:
                 key: password
           - name: JHIPSTER_SLEEP
             value: "10" # gives time for the database to boot before the application
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+          path: /
+          port: 8080
+          scheme: HTTP
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 60
       imagePullSecrets:
       - name: slabdojo-registry
   test: false
