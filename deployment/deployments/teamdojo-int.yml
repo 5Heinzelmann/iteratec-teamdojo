@@ -25,6 +25,8 @@ spec:
         env:
           - name: SPRING_PROFILES_ACTIVE
             value: "int,swagger"
+          - name: SPRING_LIQUIBASE_CONTEXTS
+            value: "demo"
           - name: SPRING_DATASOURCE_URL
             value: "jdbc:postgresql://postgres-int:5432/dojo"
           - name: SPRING_DATASOURCE_USERNAME
